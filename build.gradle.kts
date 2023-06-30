@@ -1,5 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+	extra["openFeignVersion"] = "4.0.3"
+}
+
 plugins {
 	id("org.springframework.boot") version "3.1.1"
 	id("io.spring.dependency-management") version "1.1.0"
@@ -21,6 +25,7 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("openFeignVersion")}")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
